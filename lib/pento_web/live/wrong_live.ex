@@ -2,7 +2,14 @@ defmodule PentoWeb.WrongLive do
   use PentoWeb, :live_view
 
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, score: 0, message: "Guess the number")}
+    {:ok,
+    assign(
+      socket,
+      score: 0,
+      message: "Guess the number"),
+      # user: Pento.Accounts.generate_user_session_token(session["user_token"]),
+      # session_id: session["live_socket_id"]
+    }
   end
 
   def handle_event("guess", %{"number" => guess}=data, socket) do
@@ -26,6 +33,8 @@ defmodule PentoWeb.WrongLive do
         <a href="#" phx-click="guess" phx-value-number="<%= n %>"><%= n %></a>
       <% end %>
     </h2>
+
+
     """
   end
 end
