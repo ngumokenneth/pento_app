@@ -1,5 +1,5 @@
 defmodule Pento.Catalog.Product do
-  alias __MODULE__
+
   use Ecto.Schema
   import Ecto.Changeset
 
